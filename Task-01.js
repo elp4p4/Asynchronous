@@ -1,8 +1,12 @@
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, 1000));
+}
+
 async function iterateWithAsyncAwait(array) {
     for (const arr of array) {
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await delay();
         console.log(arr);
     }
 }
 
-iterateWithAsyncAwait(['kill', 'death', 'suicide']);
+iterateWithAsyncAwait(['sky', 'blue', 'sun']);
