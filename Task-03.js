@@ -1,5 +1,5 @@
-async function awaitCallWithErrorHandling(bolean) {
-    const simulateApiCall = (shouldSucceed) => new Promise((resolve, reject) => {
+function simulateApiCall(shouldSucceed) {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (shouldSucceed) {
                 resolve("API Data");
@@ -8,7 +8,9 @@ async function awaitCallWithErrorHandling(bolean) {
             }
         }, 2000);
     });
+}
 
+async function awaitCallWithErrorHandling(bolean) {
     try {
         const data = await simulateApiCall(bolean);
         console.log("Received:", data);
@@ -17,5 +19,4 @@ async function awaitCallWithErrorHandling(bolean) {
     }
 }
 
-
-awaitCallWithErrorHandling(false);
+awaitCallWithErrorHandling(true);
